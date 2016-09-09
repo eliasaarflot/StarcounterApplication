@@ -1,0 +1,47 @@
+﻿<link rel="import" href="/sys/polymer/polymer.html">
+
+<link href="../Content/font-awesome.css" rel="stylesheet" />
+
+<template>
+    <template is="dom-bind">
+        <h3>Sortable List</h3>
+
+        <table class="table table-bordered table-hover">
+            <thead class="peopple-items-head">
+            <th class="peopple-item-cell">#</th>
+            <th class="peopple-item-cell">Firstname</th>
+            <th class="peopple-item-cell">Lastname</th>
+            <th class="peopple-item-cell">Move Up</th>
+            <th class="peopple-item-cell">Move Down</th>
+            </thead>
+            <tbody class="people-items-body">
+                <template class="sortable-list-row" is="dom-repeat" items="{{model.People}}">
+                    <tr>
+                        <td class="people-item-cell">
+                            {{item.Counter}}
+                        </td>
+                        <td class="people-item-cell">
+                            {{item.Firstname}}
+                        </td>
+                        <td class="people-item-cell">
+                            {{item.Lastname}}
+                        </td>
+                        <td class="people-item-cell">
+                                <span class="fa fa-thumbs-up"  select="{{item.MoveUp$::click}}" onclick="this.select++">
+
+                                </span>
+                            
+                        </td>
+                        <td class="people-item-cell">
+
+                                <span class="fa fa-thumbs-down" select="{{item.MoveDown$::click}}" onclick="this.select++">
+
+                                </span>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+
+</template>
